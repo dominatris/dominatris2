@@ -57,7 +57,7 @@ function solicitudAJAX(params) {
     objXMLHttpRequest.send();
   }
   
-  function buscar() {
+  function busca() {
     let tarjetas = document.querySelector("#ConteinerCard");
     var data = document.querySelector("#nPokemon").data;
     var busqueda = document.querySelector("#nPokemon").value - 1;

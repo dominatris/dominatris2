@@ -17,7 +17,7 @@ function solicitudAJAX(params) {
         }
       }
     };
-    objXMLHttpRequest.open("GET", url +"?limit=300");
+    objXMLHttpRequest.open("GET", url +"?limit=600");
     objXMLHttpRequest.send();
   }
   
@@ -60,10 +60,11 @@ function solicitudAJAX(params) {
   function busca() {
     let tarjetas = document.querySelector("#ConteinerCard");
     var data = document.querySelector("#nPokemon").data;
-    var busqueda = document.querySelector("#nPokemon").value - 1;
-    var url = data.results[busqueda].url;
+    var busqueda = document.querySelector("#nPokemon").value ;
   
-    if (busqueda >= 0) {
+    if (busqueda >= 0 && busqueda <601) {
+        
+    var url = data.results[busqueda-1].url;
       var objXMLHttpRequest = new XMLHttpRequest();
   
       objXMLHttpRequest.onreadystatechange = function () {
@@ -82,7 +83,9 @@ function solicitudAJAX(params) {
               nombre +
               `</h5>
       <p class="card-text"></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="https://www.wikidex.net/wiki/`+ nombre+
+      
+      `" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`;
             tarjetas.innerHTML = html;
@@ -95,7 +98,8 @@ function solicitudAJAX(params) {
       objXMLHttpRequest.open("GET", url);
       objXMLHttpRequest.send();
     } else {
-      alert("DEbe ingresar un numero de 1 a 20 para obtener un Pokemon valido");
+      alert("Debe ingresar un numero de 1 a 600 para obtener un Pokemon valido");
+      console.log("NOOOOO");
     }
   }
   
